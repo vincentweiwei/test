@@ -5,8 +5,13 @@
       var ifr = document.createElement('iframe');
       var src = "wandafeifanapp://h5/app/goods/detail?flashsale=1&id=1000008605&adId=GP1456990313975000000&cityId=110100&plazaId=1000772";
       ifr.src = src;
-      document.body.appendChild(ifr);
-      window.location = src;
+      //document.body.appendChild(ifr);
+      //window.location = src;
+      
+      var div = document.createElement('div');
+            div.style.visibility = 'hidden';
+            div.innerHTML = '<iframe id="schema" src="' + src + '" scrolling="no" width="1" height="1"></iframe>';
+            document.body.appendChild(div);
     </script>
   </body>
 </html>
