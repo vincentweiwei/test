@@ -3,8 +3,10 @@
   <body>
     <script>
       var ifr = document.createElement('iframe');
-      ifr.src = "wandafeifanapp://h5/app/goods/detail?flashsale=1&id=1000008605&adId=GP1456990313975000000&cityId=110100&plazaId=1000772";
+      var src = "wandafeifanapp://h5/app/goods/detail?flashsale=1&id=1000008605&adId=GP1456990313975000000&cityId=110100&plazaId=1000772";
+      ifr.src = src;
       document.body.appendChild(ifr);
+      window.location = src;
     </script>
   </body>
 </html>
