@@ -9,11 +9,15 @@
     //document.body.appendChild(ifr);
     
     var div = document.createElement('div');
-            div.style.visibility = 'hidden';
-            div.innerHTML = '<iframe id="schema" src="' + src + '" scrolling="no" width="1" height="1"></iframe>';
-            document.body.appendChild(div);
+    div.style.visibility = 'hidden';
+    div.innerHTML = '<iframe id="schema" src="' + src + '" scrolling="no" width="1" height="1"></iframe>';
+    document.body.appendChild(div);
             
-            window.location = src;
+    window.location = src;
+            
+    var a = document.createElement('a');
+    a.href = src;
+    document.body.appendChild(a);
   </script>
 </body>
 </html>
