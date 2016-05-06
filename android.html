@@ -12,14 +12,15 @@
     div.style.visibility = 'hidden';
     div.innerHTML = '<iframe id="schema" src="' + src + '" scrolling="no" width="1" height="1"></iframe>';
     document.body.appendChild(div);
-            
-    window.location = src;
+
             
     var a = document.createElement('a');
     a.href = src;
     a.innerHTML = 'click to open';
     document.body.appendChild(a);
-    a.click();
+    
+    
+    window.location.href = src;
   </script>
 </body>
 </html>
