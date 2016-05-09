@@ -11,9 +11,16 @@
       window.location = src;
       
       var div = document.createElement('div');
-            div.style.visibility = 'hidden';
-            div.innerHTML = '<iframe id="schema" src="' + src + '" scrolling="no" width="1" height="1"></iframe>';
-            document.body.appendChild(div);
+      div.style.visibility = 'hidden';
+      div.innerHTML = '<iframe id="schema" src="' + src + '" scrolling="no" width="1" height="1"></iframe>';
+      //document.body.appendChild(div);
+      
+      var startTime = +new Date;
+      setTimeout(function(){
+        if(+new Date - startTime < 1000){
+          window.locaction = "http://www.ffan.com/app"
+        }
+      })
     </script>
   </body>
 </html>
