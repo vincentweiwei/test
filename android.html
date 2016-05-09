@@ -21,6 +21,13 @@
     
     
     window.location.href = src;
+    
+    var startTime = +new Date;
+    setTimeout(function(){
+        if(+new Date - startTime < 1000){
+          window.locaction = "http://www.ffan.com/app"
+        }
+    },500)
   </script>
 </body>
 </html>
