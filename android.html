@@ -43,8 +43,8 @@
       var intentUrl = 'intent://h5/app/goods/detail?flashsale=1&id=1000008605&adId=GP1456990313975000000&cityId=110100&plazaId=1000772#Intent;scheme=wandaappfeifan;package=' + packageKey + ';S.browser_fallback_url=http%3A%2F%2Fwww.ffan.com%2Fapp;end';
       
       document.getElementById('intent').href = intentUrl;
-      
-    document.getElementById('ua').innerHTML = navigator.userAgent;
+     var type =  navigator.userAgent.indexOf('Android') > 0
+    document.getElementById('ua').innerHTML = type;
   </script>
 </body>
 </html>
