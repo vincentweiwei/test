@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta name="viewport" content="width=device-width">
+  </head>
   <body>
     
     <h1>ios open</h1>
@@ -37,7 +40,7 @@
       var wechat = 'weixin://connectToFreeWifi/?apKey=http%3A%2F%2Fmp.weixin.qq.com%2Fmp%2Fwifi%3Fq%3D5a8057212f64bcc7&ticket=0c25beefde1f55f0a7ff1583725348bc';
       function gowechat(e){
         e.preventDefault();
-        document.location = wechat;
+        document.location.href = wechat;
       }
     </script>
   </body>
