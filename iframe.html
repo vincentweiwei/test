@@ -9,7 +9,7 @@
 	</style>
 	<body>
 		<button value="点击" onclick="parent.gogogo()">点击</button><br>
-		<a id="wechat-test" target="_top" style="">click</a>2
+		<a id="wechat-test" target="_top" style="" onclick="aclick">click</a>2
 
 		<script src="http://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
 
@@ -35,6 +35,9 @@
 src="https://wifi.weixin.qq.com/resources/js/wechatticket/wechatutil.js" ></script>
 
 <script type="text/javascript">
+function aclick(e){
+	alert('a click')
+}
     //注册回调函数
     parent.jsonpCallback = function(result){  
         if(result && result.success){
@@ -53,7 +56,7 @@ src="https://wifi.weixin.qq.com/resources/js/wechatticket/wechatutil.js" ></scri
              document.getElementById('wechat-test').click();
             var adom = document.getElementById('wechat-test');
             var evObj = document.createEvent('TouchEvents');
-            evObj.initMouseEvent('touch', true, true, window);
+            evObj.initMouseEvent('touchend', true, true, window);
             adom.dispatchEvent(evObj);
         }else if(result && !result.success){
             alert(result.data);
