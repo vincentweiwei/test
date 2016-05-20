@@ -1,0 +1,86 @@
+<html>
+	<meta name="viewport" content="width=device-width">
+
+	<style type="text/css">
+		button{
+			height: 50px;
+			width: 200px;
+		}
+	</style>
+	<body>
+		<button value="点击" onclick="parent.gogogo()">点击</button><br>
+		<a id="wechat-test" target="_top" style="display:none">click</a>
+
+		<script src="http://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+
+
+		<script type="text/javascript" src="http://www.veryhuo.com/uploads/Common/js/jQuery.md5.js"></script>
+
+		<script type="text/javascript">
+			  var appId = "wx25dd50784edd9977",
+      extend = "test",     
+      timestamp = new Date().getTime().toString(),
+      sign = "",
+      shopId = "7447546",
+      authUrl = "http://baidu.com",
+      mac = "00:00:00:00:00:00",
+      ssid = "Airport_Free_WiFi_BJ";		     
+      var sign = $.md5(appId + extend + timestamp + shopId + authUrl + mac + ssid + "db78b5c96fbb6f39edcd7a2382d64190")
+
+
+		</script>
+
+
+<script type="text/javascript"    
+src="https://wifi.weixin.qq.com/resources/js/wechatticket/wechatutil.js" ></script>
+
+<script type="text/javascript">
+    //注册回调函数
+    parent.jsonpCallback = function(result){  
+        if(result && result.success){
+            var ua=navigator.userAgent;              
+            if (ua.indexOf("iPhone") != -1 ||ua.indexOf("iPod")!=-1||ua.indexOf("iPad") != -1 || ua.indexOf("Android" != -1)){
+                // window.parent.document.location = result.data;
+                document.getElementById('wechat-test').href = result.data;
+            }else{
+                createIframe();
+                document.getElementById('wechat-test').href = result.data;
+                // loadIframe.src=result.data;
+                noResponse = setTimeout(function(){
+                    errorJump();
+                },3000);
+            }
+            // document.getElementById('wechat-test').click();
+            var adom = document.getElementById('wechat-test');
+            var evObj = document.createEvent('MouseEvents');
+            evObj.initMouseEvent('click', true, true, window);
+            adom.dispatchEvent(evObj);
+        }else if(result && !result.success){
+            alert(result.data);
+        }
+    }
+    parent.Wechat_GotoRedirect = function(appId, extend, timestamp, sign, shopId, authUrl, mac, ssid, bssid){
+            
+            
+            url = "https://wifi.weixin.qq.com/operator/callWechat.xhtml?appId=" + appId 
+                                                                            + "&extend=" + extend 
+                                                                            + "&timestamp=" + timestamp 
+                                                                            + "&sign=" + sign
+                                                                            + "&shopId=" + shopId
+                                                                            + "&authUrl=" + encodeURIComponent(authUrl)
+                                                                            + "&mac=" + mac
+                                                                            + "&ssid=" + ssid;
+              
+        
+        //通过dom操作创建script节点实现异步请求  
+        var script = document.createElement('script');  
+        script.setAttribute('src', url);  
+        parent.document.getElementsByTagName('head')[0].appendChild(script);
+    }
+
+    parent.gogogo = function(e){
+        parent.Wechat_GotoRedirect(appId,extend,timestamp,sign,shopId,authUrl,mac,ssid);
+    }
+</script>
+	</body>
+</html>
